@@ -2,11 +2,64 @@
 Инкапсуляция - представляет собой код, в котором находятся все функции и переменные, в общем вся логика  требуемой программы. И все данные и методы работы с ними могут быть изолированы от внешнего вмешательтва. А также использоваться как рабочий чертеж для решения подобных задач. В производстве для изготовления любой детали используется чертеж, он будет служить прототипом для создания множества деталей.  И как в обыкновенном чертеже все что касается детали подробно описано : точные размеры, марка стали,  шаг резьбы и т.д. Наш  чертеж состоящий из свойств и методов для их обработки называется классом и тоже должен быть подробно описан. Все свойства и методы также должны быть защищены от изменения. 
 Поэтому из-за многочисленных описаний и обьявлений кода становится больше. Но сама структура программы становится стройнее.Наш класс в дальнейшем используется как экземпляр для создания подобных программ(обЪектов). И если нам необходимо внести изменения во множество созданных на базе класса рабочих экземпляров, достаточно сделать изменения в классе. 
 
-Однако кроме увеличенного обьема кода есть и еще один минус. Если при описании класса в чем - то была допущена ошибка то она каснется всех созданных обьектов.   
+Однако кроме увеличенного обьема кода есть и еще один минус. Если при описании класса в чем - то была допущена ошибка то она каснется всех созданных обьектов.    
 
 <?php
 
- echo "<br>Образовательное учреждение<br>"; /// чертим школу
+ echo "<br>";
+class Car {
+	public $model = 'модель';
+	public function getmodel(){
+		echo $this->model."<br>";
+	}
+	public $color = 'Цвет: темно-синий<br>';
+	public function getColor() {
+		echo $this->color."<br>";
+	}
+	public $engine_volume = 'Объем двигателя:<br>';
+	public function getengine_volume() {
+		echo $this->engine_volume."<br>";
+	}
+	public $type_of_drive = 'Тип привода:<br>';
+	public function getType_of_drive() {
+		echo $this->type_of_drive."<br>";
+	}
+	public $body_type = 'Тип кузова:<br>';
+	public function getBody_type() {
+		echo $this->body_type."<br>";
+	}
+	public $type_of_transmission = 'Тип трансмисии:<br>';
+	public function getType_of_transmission() {
+		echo $this->type_of_transmission."<br>";
+	}
+}
+$vaz = new Car();
+$vaz->model = "Ваз 2105";
+$vaz->type_of_transmission="ручной";
+$vaz->body_type="седан";
+$vaz->type_of_drive="задний";
+$vaz->engine_volume="1.5 литра";
+$vaz->color = "Морская волна";
+$vaz->getmodel();
+$vaz->getColor();
+$vaz->getengine_volume();
+$vaz->getType_of_drive();
+$vaz->getBody_type();
+$vaz->getType_of_transmission();
+$funcargo = new Car();
+$vaz->model = "Toyota - Funcargo";
+$vaz->type_of_transmission="автоматический";
+$vaz->body_type="седан";
+$vaz->type_of_drive="4wd";
+$vaz->engine_volume="1.7 литра";
+$vaz->color = "Красный";
+$vaz->getmodel();
+$vaz->getColor();
+$vaz->getengine_volume();
+$vaz->getType_of_drive();
+$vaz->getBody_type();
+$vaz->getType_of_transmission();
+		echo "<br>Образовательное учреждение<br>"; /// чертим школу
 class School 
 {	public $name = 'название учреждения';
 	public function getname(){
@@ -81,7 +134,7 @@ class Vagon
 	}
 }
 	
-$Platform = new Vagon(); // И по его типу создаем три разных ваогона Платформу
+$Platform = new Vagon(); // И по его типу создаем три разных вагона Платформу
 $Platform->typevag = 'Платформа';
 $Platform->tara = '25';
 $Platform->countAxis = '4';
@@ -111,6 +164,5 @@ $Tank->gettara();
 $Tank->getcountAxis();
 $Tank->getlength();
 ////
-
 ?>
 	
