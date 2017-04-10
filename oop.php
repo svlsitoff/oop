@@ -10,6 +10,7 @@
 </p>
 <?php
 
+
  echo "<br>";
 class Car {
 	public $model = 'модель';
@@ -166,7 +167,27 @@ $Tank->length = '12';
 $Tank->gettypevag();
 $Tank->gettara();
 $Tank->getcountAxis();
-$Tank->getlength();
+$Tank->getlength();*/
 ////
+/*
+	class News {
+ 
+	public $heder;
+	public $content;
+	public $comments;
+	
+	public function viewmath(){
+		echo $this->heder."<br>";
+		echo $this->content."<br>";
+		echo $this->comments."<br>";
+	}
+
+}
+$article = new News; 
+$article->heder = "Статья один";
+$article->content = "Контент один";
+$article->comments = "Комментарий один";
+$article->view();*/
+
 ?>
 	
