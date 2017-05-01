@@ -1,6 +1,5 @@
 <p>
-Инкапсуляция - представляет собой код, в котором находятся все функции и переменные, в общем вся логика  требуемой программы. И все данные и методы работы с ними могут быть изолированы от внешнего вмешательтва. 
-А также использоваться как рабочий чертеж для решения подобных задач.
+Инкапсуляция - представляет собой код, в котором находятся все функции и переменные, в общем вся логика  требуемой программы. И все данные и методы работы с ними могут быть изолированы от внешнего вмешательтва, а также использоваться как рабочий чертеж для решения подобных задач.
 <p> В производстве для изготовления любой детали используется чертеж, он будет служить прототипом для создания множества деталей.  И как в обыкновенном чертеже все что касается детали подробно описано : точные размеры, марка стали,  шаг резьбы и т.д.
  Наш  чертеж состоящий из свойств и методов для их обработки называется классом и тоже должен быть подробно описан. Все свойства и методы также должны быть защищены от изменения. </p>
 <p>
@@ -9,185 +8,221 @@
 Однако кроме увеличенного обьема кода есть и еще один минус. Если при описании класса в чем - то была допущена ошибка то она каснется всех созданных обьектов.    
 </p>
 <?php
-
+error_reporting(-1);
+ /**
+ * 
+ */
+ class Product 
+ {
+ 	public $price ;
+ 	public function showprice()
+ 	{
+ 		echo 'Стоимость:'. $this->price."<br>";
+ 	}
+ 	public function __construct()
+ 	{
+ 		echo "---------------------------------------------<br>";
+ 	}
+ 	
+ }
 
  echo "<br>";
-class Car {
+class Car extends Product {
 	public $model = 'модель';
 	public function getmodel(){
-		echo $this->model."<br>";
+		echo 'модель: '. $this->model."<br>";
 	}
 	public $color = 'Цвет: темно-синий<br>';
 	public function getColor() {
-		echo $this->color."<br>";
+		echo 'цвет: '. $this->color."<br>";
 	}
 	public $engine_volume = 'Объем двигателя:<br>';
 	public function getengine_volume() {
-		echo $this->engine_volume."<br>";
+		echo 'обьем: '. $this->engine_volume."<br>";
 	}
 	public $type_of_drive = 'Тип привода:<br>';
 	public function getType_of_drive() {
-		echo $this->type_of_drive."<br>";
+		echo 'тип привода: '. $this->type_of_drive."<br>";
 	}
 	public $body_type = 'Тип кузова:<br>';
 	public function getBody_type() {
-		echo $this->body_type."<br>";
+		echo 'тип кузова: '. $this->body_type."<br>";
 	}
 	public $type_of_transmission = 'Тип трансмисии:<br>';
 	public function getType_of_transmission() {
-		echo $this->type_of_transmission."<br>";
-	}
-}
-$vaz = new Car();
-$vaz->model = "Ваз 2105";
-$vaz->type_of_transmission="ручной";
-$vaz->body_type="седан";
-$vaz->type_of_drive="задний";
-$vaz->engine_volume="1.5 литра";
-$vaz->color = "Морская волна";
-$vaz->getmodel();
-$vaz->getColor();
-$vaz->getengine_volume();
-$vaz->getType_of_drive();
-$vaz->getBody_type();
-$vaz->getType_of_transmission();
-$funcargo = new Car();
-$vaz->model = "Toyota - Funcargo";
-$vaz->type_of_transmission="автоматический";
-$vaz->body_type="седан";
-$vaz->type_of_drive="4wd";
-$vaz->engine_volume="1.7 литра";
-$vaz->color = "Красный";
-$vaz->getmodel();
-$vaz->getColor();
-$vaz->getengine_volume();
-$vaz->getType_of_drive();
-$vaz->getBody_type();
-$vaz->getType_of_transmission();
-		echo "<br>Образовательное учреждение<br>"; /// чертим школу
-class School 
-{	public $name = 'название учреждения';
-	public function getname(){
-		echo $this->name ."<br>";
-	}
-	public $Size  = 'размер здания';
-	public function getsize() {
-		echo $this->size ."<br>";
-	}
-	public $number_students = "количество учащихся";
-	public function getnumber_students() {
-		echo $this->number_students."<br>";
-	}
-	public $number_tichers = "количество преподавателей";
-	public function getnumber_tichers() {
-		echo $this->number_tichers."<br>";
-	}
-	public $rating_students = 'Успеваемость:';
-	public function getrating_students() {
-		echo $this->rating_students."<br>";
-	}
-	public $price = 'Стоимость обучения';
-	public function getprice() {
-		echo $this->price."<br>";
-	}
-}
-$CerkovnoPrihodskaya = new School(); // И по этому чертежу создаем маленькую школу
-$CerkovnoPrihodskaya->name = "Церковноприходская";
-$CerkovnoPrihodskaya->number_students = '3';
-$CerkovnoPrihodskaya->number_tichers = '1';
-$CerkovnoPrihodskaya->rating_students = '3';
-$CerkovnoPrihodskaya->price = 'бесплатно';
-$CerkovnoPrihodskaya->size = '5*3 кв.м';
-$CerkovnoPrihodskaya->getname();
-$CerkovnoPrihodskaya->getsize();
-$CerkovnoPrihodskaya->getnumber_students();
-$CerkovnoPrihodskaya->getnumber_tichers();
-$CerkovnoPrihodskaya->getrating_students();
-$CerkovnoPrihodskaya->getprice();
-////
-$PolitechnicalUneversity = new School(); // А по этому чертежу создаем университет
-$PolitechnicalUneversity->name = 'Политехнический университет';
-$PolitechnicalUneversity->number_students = '5000';
-$PolitechnicalUneversity->number_tichers = '320';
-$PolitechnicalUneversity->rating_students = 'у всех своя';
-$PolitechnicalUneversity->price = 'от бюджетного места и до бесконечности';
-$PolitechnicalUneversity->size = '1000*1200 кв.м';
-$PolitechnicalUneversity->getname();
-$PolitechnicalUneversity->getsize();
-$PolitechnicalUneversity->getnumber_students();
-$PolitechnicalUneversity->getnumber_tichers();
-$PolitechnicalUneversity->getrating_students();
-$PolitechnicalUneversity->getprice();
-echo "<br>вагон<br>";//описываем класс вагон
-class Vagon 
-{
-	public $tara = 'Масса тары:';
-	public function gettara() {
-		echo "Масса". $this->tara."<br>";
-	}
-	public $typevag = 'тип вагона: ';
-	public function gettypevag() {
-		echo 'тип вагона'. $this->typevag."<br>";
-	}
-	public $countAxis = 'Число осей: ';
-	public function getcountAxis() {
-		echo 'Число осей'. $this->countAxis."<br>";
-	}
-	public $length = 'Длина по осям автосцепок: ';
-	public function getlength() {
-		echo "Длина". $this->length."<br>";
-	}
-}
-	
-$Platform = new Vagon(); // И по его типу создаем три разных вагона Платформу
-$Platform->typevag = 'Платформа';
-$Platform->tara = '25';
-$Platform->countAxis = '4';
-$Platform->length = '21';
-$Platform->gettypevag();
-$Platform->gettara();
-$Platform->getcountAxis();
-$Platform->getlength();
-////////
-$Poluvagon = new Vagon();// И полувагон
-$Poluvagon->typevag = 'Полувагон';
-$Poluvagon->tara = '22';
-$Poluvagon->countAxis = '4';
-$Poluvagon->length = '18';
-$Poluvagon->gettypevag();
-$Poluvagon->gettara();
-$Poluvagon->getcountAxis();
-$Poluvagon->getlength();
-/////
-$Tank = new Vagon();// И цистерну
-$Tank->typevag = 'Цистерна';
-$Tank->tara = '32';
-$Tank->countAxis = '4';
-$Tank->length = '12';
-$Tank->gettypevag();
-$Tank->gettara();
-$Tank->getcountAxis();
-$Tank->getlength();*/
-////
-/*
-	class News {
- 
-	public $heder;
-	public $content;
-	public $comments;
-	
-	public function viewmath(){
-		echo $this->heder."<br>";
-		echo $this->content."<br>";
-		echo $this->comments."<br>";
+		echo "Тип трансмисии: ". $this->type_of_transmission."<br>";
 	}
 
 }
-$article = new News; 
-$article->heder = "Статья один";
-$article->content = "Контент один";
-$article->comments = "Комментарий один";
-$article->view();*/
+$vaz = new Car();
+	$vaz->model = "Ваз 2105";
+	$vaz->type_of_transmission="ручной";
+	$vaz->body_type="седан";
+	$vaz->type_of_drive="задний";
+	$vaz->engine_volume="1.5 литра";
+	$vaz->color = "Морская волна";
+	$vaz->price = "90000";
+	$vaz->getmodel();
+	$vaz->getColor();
+	$vaz->getengine_volume();
+	$vaz->getType_of_drive();
+	$vaz->getBody_type();
+	$vaz->getType_of_transmission();
+	$vaz->showprice();
+$funcargo = new Car();
+	$funcargo->model = "Toyota - Funcargo";
+	$funcargo->type_of_transmission="автоматический";
+	$funcargo->body_type="седан";
+	$funcargo->type_of_drive="4wd";
+	$funcargo->engine_volume="1.7 литра";
+	$funcargo->color = "Красный";
+	$funcargo->price = "470000";
+	$funcargo->getmodel();
+	$funcargo->getColor();
+	$funcargo->getengine_volume();
+	$funcargo->getType_of_drive();
+	$funcargo->getBody_type();
+	$funcargo->getType_of_transmission();
+	$funcargo->showprice();
+class TV extends Product
+{
+	public $model;
+	public function showmodel()
+		{
+			echo 'модель:'. $this->model."<br>";
+		}
+	public $color  ;
+	public function showcolor()
+		{
+			echo 'Цвет:'. $this->color."<br>";
+		}
+	public $ScreenSize ;
+	public function showScreenSize()
+		{
+			echo 'Размер экрана:'. $this->ScreenSize."<br>";
+		}
+	public $resolution ;
+	public function showresolution()
+		{
+			echo 'Разрешение:'. $this->resolution."<br>";
+		}
+	
+}
+$Samsung = new TV();
+$Samsung->model = "UEF6400AK";
+$Samsung->price = "32000";
+$Samsung->color = "Black";
+$Samsung->ScreenSize = '80 см';
+$Samsung->resolution = "1920x1080 px" ;
+$Samsung->showprice();
+$Samsung->showmodel();
+$Samsung->showcolor();
+$Samsung->showScreenSize();
+$Samsung->showresolution();
+$LG = new TV();
+$LG->model = "LG 28LH451U";
+$LG->price = "14300";
+$LG->color = "Grey";
+$LG->ScreenSize ="71 см";
+$LG->resolution = "1366x768 px";
+$LG->showprice();
+$LG->showmodel();
+$LG->showcolor();
+$LG->showScreenSize();
+$LG->showresolution();
+class Pencil extends Product
+{
+	public $model ;
+	public function showmodel()
+		{
+			echo 'модель:'. $this->model."<br>";
+		}
+	public $color ;
+	public function showcolor()
+		{
+			echo 'Цвет:'. $this->color."<br>";
+		}
+	public $material ;
+	public function showmaterial()
+		{
+			echo 'Материал:'.$this->material."<br>";
+		}
+	
+}
+$Bic = new Pencil();
+$Bic->model = 'Шариковая ручка';
+$Bic->color = 'red';
+$Bic->material = 'plastic';
+$Bic->price = '25р';
+$Bic->showprice();
+$Bic->showmodel();
+$Bic->showcolor();
+$Bic->showmaterial();
+$Parker = new Pencil();
+$Parker->model = 'Перьевая ручка ';
+$Parker->color = "Gold";
+$Parker->material = "metall, plastic";
+$Parker->price = "1200р";
+$Parker->showprice();
+$Parker->showmodel();
+$Parker->showcolor();
+$Parker->showmaterial();
+class Duck 
+{
+	public function __construct()
+	{
+		echo "------------------------<br>";
+	}
+	public $name ;
+	public  function showname()
+	{
+		echo 'Название: '. $this->name."<br>";
+	}
+	public $wing_size;
+	public function showwing_size()
+	{
+		echo 'Размах крыльев:'. $this->wing_size."<br>";
+	}
+	public $color ;
+	public function showcolor()
+	{
+		echo 'Цвет:'. $this->color."<br>";
+	}
+	public $timelife ;
+	public function showtimelife()
+	{
+		echo 'Время жизни:'. $this->timelife."<br>";
+	}
+	public $massa ;
+	public function showmassa()
+	{
+		echo 'Вес:'. $this->massa."<br>";
+	}
+}
+
+$Duck_mandarine = new Duck;
+$Duck_mandarine->name = 'Утка мандаринка';
+$Duck_mandarine->timelife = ' 2 года';
+$Duck_mandarine->color = 'white-grey-yellow';
+$Duck_mandarine->massa = '500 г';
+$Duck_mandarine->wing_size = '30см';
+$Duck_mandarine->showname();
+$Duck_mandarine->showwing_size();
+$Duck_mandarine->showcolor();
+$Duck_mandarine->showtimelife();
+$Duck_mandarine->showmassa();
+$Duck_Gagara = new Duck;
+$Duck_Gagara->name = 'Утка гагара';
+$Duck_Gagara->age = ' 20 лет';
+$Duck_Gagara->timelife = '20 лет';
+$Duck_Gagara->color = 'white-grey';
+$Duck_Gagara->massa = '6 кг';
+$Duck_Gagara->wing_size = '152см';
+$Duck_Gagara->showname();
+$Duck_Gagara->showwing_size();
+$Duck_Gagara->showcolor();
+$Duck_Gagara->showtimelife();
+$Duck_Gagara->showmassa();
 
 ?>
 	
