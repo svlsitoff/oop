@@ -7,11 +7,19 @@ public function someinterface();
 class Product implements GetSomeinterface
 {
 	
-	
 	public $price;
 	public $color;
 	public $title;
-	public function someinterface(){}
+	public function someinterface($res='')
+	{
+		$link = file_get_contents($res);
+		$link = explode('***', $link);
+		$i = rand(0,2);
+		$link = "<img src = $link[$i]>";
+
+		echo "$link";
+		echo "<br>";
+	}
 }
 
 
@@ -19,7 +27,6 @@ class Product implements GetSomeinterface
 {	
 	
 	public $volume_engine;	
-	public function someinterface() {}
 	public function __construct($price,$color,$volume_engine,$title)
 	{
 		$this->price = $price;
@@ -34,9 +41,12 @@ class Product implements GetSomeinterface
 
 
 	}
-} 
+}
 $vaz_2105 = new Car('1200$','Морская волна','1.5','vaz-05');
+$vaz_2105->someinterface($res='links/vaz.txt');
 $toyota_camry = new Car('15000$','White','1.5','camry');
+$toyota_camry->someinterface($res='links/toyota.txt');
+
 
   class Tv extends Product
 {	
@@ -60,7 +70,9 @@ $toyota_camry = new Car('15000$','White','1.5','camry');
 }
 
 $samsung = new Tv('300$','White','21 дюйм','samsung');
+$samsung->someinterface($res='links/tv.txt');
 $lg = new Tv('700$','Black','32','lg');
+$lg->someinterface($res='links/tv2.txt');
 
   class Pen extends Product 
 {	
@@ -84,10 +96,15 @@ $lg = new Tv('700$','Black','32','lg');
 }
 
 $Parker = new Pen('100$','Gold','fountain pen','Parker');
+$Parker->someinterface($res='links/pen2.txt');
 $SimplePen = new Pen('1$','Green','ball pen','Простая шариковая ручка');
+$SimplePen->someinterface($res='links/pen1.txt');
 	
-
- 	class Bird
+	interface Live
+	{
+		public function makelive();
+	}
+ 	class Bird implements Live
  	{
  		public $massa;
 		public $color;
@@ -95,6 +112,16 @@ $SimplePen = new Pen('1$','Green','ball pen','Простая шариковая 
 		public $title;
 		public $wing_size;
  		
+ 		public function makelive($res = '')
+ 		{
+ 		$link = file_get_contents($res);
+		$link = explode('***', $link);
+		$i = rand(0,2);
+		$link = "<img src = $link[$i]>";
+
+		echo "$link";
+		echo "<br>";
+ 		}
  		
  	}	
 
@@ -108,6 +135,7 @@ $SimplePen = new Pen('1$','Green','ball pen','Простая шариковая 
 		$this->color = $color;
 		$this->title = $title;
 		$this->wing_size = $wing_size;
+		
 		echo "<br>";
 		echo "вес- ". $this->massa."<br>";
 		echo "цвет- ".$this->color."<br>";
@@ -118,9 +146,21 @@ $SimplePen = new Pen('1$','Green','ball pen','Простая шариковая 
 	}
 }
 $Duck_mandarine = new Duck('500г','white-grey-yellow','30см','Утка мандаринка');
+$Duck_mandarine->makelive($res='links/litlbirds.txt');
 $Duck_mandarine->age = ' 2 года';
-echo "Возраст =  $Duck_mandarine->age<br>";
+echo "Время жизни =  $Duck_mandarine->age<br>";
 $Duck_Gagara = new Duck('6кг','white-grey','152см','Утка Гагара');
 $Duck_Gagara->age = ' 20 лет';
-echo "Возраст = $Duck_Gagara->age<br>";
+$Duck_Gagara->makelive($res='links/bigbirds.txt');
+echo "Время жизни = $Duck_Gagara->age<br>";
 
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Наследование и интерфейсы</title>
+</head>
+<body>
+
+</body>
+</html>
